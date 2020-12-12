@@ -1,43 +1,62 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" xmlns:th="https://thymeleaf.org">
-    <head>
-        <meta charset="utf-8">
-        <title>DIDILogIn</title>
-        <link rel="stylesheet" href="2.css">
-    </head>
-       <body>
-    <form action="login" method="post" name="userInfo">
+<head>
+    <meta charset="UTF-8">
+    <title>DIDILogIn</title>
 
- <h1 align="center">Log In</h1>
-   <table width="600" align="right" cellpadding="10" cellspacing="0" border="0">
- <tr >
-               <td width="120" align="center">
-                    username            
-               </td>
-               <td>
-                 <input type="text" name="username"> 
-               </td>
-                            </tr>
- <tr >
-               <td width="120" align="center">
-                    password       
-               </td>
-               <td style="color:red">
-                    <input type="password" name="password"> *
-               </td>
-                            </tr>
-                           
- <tr >
-<tr >
-                <td align="center" colspan="2">
-                 <input type="submit" value="submit">
-                 <input type="reset"value="reset"> 
-                </td>
-                                             </tr>
-                                             <tr>
-                                                  <a href="register">if you don't have an account</a>
-                                             </tr>
-                                        </table>
-   </form>
-       </body>
-  </html>
+    <link rel="stylesheet" href="3.css">
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+    <div class="container" align="right">
+        <div class="panel">
+            <div class="content login">
+                <div class="switch">
+                    <span>Login</span><span>
+                </div>
+                <form action="login" method="post" name="userInfo">
+                    <div class="input" placeholder='username'><input type="text" name="username"></div>
+                    <div class="input" placeholder='password'><input type="password" name="password"></div>
+                    <button><input type="submit" value="submit"></button>
+                	<a href="register">create an account</a>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+<script src="http://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $('#login').click(function(){
+        $('.switch span').removeClass('active');
+        $(this).addClass('active');
+
+        $(this).parents('.content').removeClass('signup');
+        $(this).parents('.content').addClass('login');
+
+        $('form button').text('LOGIN');
+    })
+
+    $('#signup').click(function(){
+        $('.switch span').removeClass('active');
+        $(this).addClass('active');
+
+        $(this).parents('.content').removeClass('login');
+        $(this).parents('.content').addClass('signup');
+
+        $('form button').text('SIGNUP');
+    })
+
+    $('.input input').on('focus',function(){
+        $(this).parent().addClass('focus');
+    })
+
+    $('.input input').on('blur',function(){
+        if($(this).val() === '')
+        $(this).parent().removeClass('focus');
+    })
+</script>
+
+</html>
