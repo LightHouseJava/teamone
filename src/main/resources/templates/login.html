@@ -1,62 +1,81 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="UTF-8">
-    <title>DIDILogIn</title>
+<meta charset="UTF-8">
+<title>DIDILogIn</title>
 
-    <link rel="stylesheet" href="3.css">
-    <link rel="stylesheet" href="2.css">
+<link rel="stylesheet" href="3.css">
+<link rel="stylesheet" href="2.css">
+
+<link rel="stylesheet" href="floatLabel.css">
+
+
 </head>
 <body>
-    <div class="container" align="right">
-        <div class="panel">
-            <div class="content login">
-                <div class="switch">
-                    <span>Login</span><span>
-                </div>
-                <form action="login" method="post" name="userInfo">
-                    <div class="input" placeholder='username'><input type="text" name="username"></div>
-                    <div class="input" placeholder='password'><input type="password" name="password"></div>
-                    <button><input type="submit" value="submit"></button>
-                	<a href="register">create an account</a>
-                </form>
+	<div class="container" align="right">
+		<div class="panel">
+			<div class="content login">
+				<div class="switch">
+					<span>Login</span><span>
+				</div>
+				<form action="login" method="post" name="userInfo">
+					<div class="input-group">
+						<input type="text" required> <span class="highlight"></span>
+						<span class="bar"></span> <label>Username</label>
+					</div>
 
-            </div>
+					<div class="input-group">
+						<input type="password" required> <span class="highlight"></span>
+						<span class="bar"></span> <label>Password</label>
+					</div>
 
-        </div>
+					<!-- <div class="input">
+						<input type="text" name="username" placeholder='username'>
+					</div>
+					<div class="input">
+						<input type="password" name="password" placeholder='password'>
+					</div> -->
+					<!-- <button ><input type="submit" value="submit"></button> -->
+					<button type="submit" value="Submit">Submit</button>
+					<a href="register">create an account</a>
+				</form>
 
-    </div>
+			</div>
+
+		</div>
+
+	</div>
 </body>
 
 <script src="http://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script>
-    $('#login').click(function(){
-        $('.switch span').removeClass('active');
-        $(this).addClass('active');
+	$('#login').click(function() {
+		$('.switch span').removeClass('active');
+		$(this).addClass('active');
 
-        $(this).parents('.content').removeClass('signup');
-        $(this).parents('.content').addClass('login');
+		$(this).parents('.content').removeClass('signup');
+		$(this).parents('.content').addClass('login');
 
-        $('form button').text('LOGIN');
-    })
+		$('form button').text('LOGIN');
+	})
 
-    $('#signup').click(function(){
-        $('.switch span').removeClass('active');
-        $(this).addClass('active');
+	$('#signup').click(function() {
+		$('.switch span').removeClass('active');
+		$(this).addClass('active');
 
-        $(this).parents('.content').removeClass('login');
-        $(this).parents('.content').addClass('signup');
+		$(this).parents('.content').removeClass('login');
+		$(this).parents('.content').addClass('signup');
 
-        $('form button').text('SIGNUP');
-    })
+		$('form button').text('SIGNUP');
+	})
 
-    $('.input input').on('focus',function(){
-        $(this).parent().addClass('focus');
-    })
+	$('.input input').on('focus', function() {
+		$(this).parent().addClass('focus');
+	})
 
-    $('.input input').on('blur',function(){
-        if($(this).val() === '')
-        $(this).parent().removeClass('focus');
-    })
+	$('.input input').on('blur', function() {
+		if ($(this).val() === '')
+			$(this).parent().removeClass('focus');
+	})
 </script>
 
 </html>
