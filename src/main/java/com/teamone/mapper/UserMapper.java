@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 
 import com.teamone.finalproject.User;
 @Mapper
-public class UserMapper {
+public interface UserMapper {
 	
 	@Insert("insert into users values (#{userName}, #{password})")
 	public void insertNewUser(@Param("userName") String userName, @Param("password") String password);
